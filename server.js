@@ -1,7 +1,7 @@
-import express from 'express';
-import bcrypt from 'bcryptjs';
-import cors from 'cors';
-import knex from 'knex';
+const express = require('express');
+const bcrypt = require('bcrypt-nodejs');
+const cors = require('cors');
+const knex = require('knex');
 
 
 const db = knex({
