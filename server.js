@@ -1,5 +1,5 @@
 import express from 'express';
-import bcrypt from 'bcrypt-nodejs';
+import bcrypt from 'bcryptjs';
 import cors from 'cors';
 import knex from 'knex';
 
