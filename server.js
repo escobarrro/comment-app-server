@@ -76,6 +76,6 @@ app.post('/register', (req, res) => {
         .catch(err => res.status(400).json('unable to register'))
 })
 
-app.listen(5432, ()=> {
-    console.log('app is running on port 5432');
+app.listen(3000, ()=> {
+    console.log('app is running on port 3000');
 })
