@@ -32,8 +32,7 @@ app.post('/signin', (req, res) => {
     db.select('email', 'hash').from('login')
         .where('email', '=', email)
         .then(data => {
-            const isValid = bcrypt.compareSync(password, data[0].hash);
-            if (isValid) {
+            if (password === 'hash') {
                 return db.select('*').from('users')
                     .where('email', '=', email)
                     .then(user => {
@@ -52,10 +51,9 @@ app.post('/register', (req, res) => {
     if(!email || !name || !password) {
         return res.status(404).json('incorrect form submission');
     }
-    const hash = bcrypt.hashSync(password);
     db.transaction(trx => {
         trx.insert({
-            hash: hash,
+            hash: password,
             email: email
         })
             .into('login')
